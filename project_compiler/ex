@@ -1,3 +1,38 @@
-Programme name{
+/*#include<InOut>*/
+int FUNCTION factoriel(int x){
+int x;
+int y;
+int tab[23];
+tab[33]:=2;
+/*x:=0;*/
+x:=a+b;
+x:=1+2;
+x:=1/2;
+x:=2*2;
+output("hahaha");
+input(x,t,y,u);
+factoriel(r,t,y);
+While(d !=f)
+Faire
 
+x:=0;
+Fait
+Return x;
+}
+Main(){
+int x;
+int y;
+int tab[23];
+tab[33]:=2;
+x:=0;
+x:=a+b;
+x:=1+2;
+x:=1/2;
+x:=2*2;
+output("hahaha");
+input(x,t,y,u);
+factoriel(r,t,y);
+While(d !=f)
+Faire
+Fait
 }
