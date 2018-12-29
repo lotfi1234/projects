@@ -1,38 +1,20 @@
-/*#include<InOut>*/
+
 int FUNCTION factoriel(int x){
-int x;
-int y;
-int tab[23];
-tab[33]:=2;
-/*x:=0;*/
-x:=a+b;
-x:=1+2;
-x:=1/2;
-x:=2*2;
+int y,x;
+float g,h;
+int tab[20];
+float tab[40];
+string CONST t;
+x:=g;
+u:=1;
 output("hahaha");
-input(x,t,y,u);
-factoriel(r,t,y);
+input(x,t);
 While(d !=f)
 Faire
-
-x:=0;
 Fait
-Return x;
+Return m;
 }
 Main(){
-int x;
-int y;
-int tab[23];
-tab[33]:=2;
-x:=0;
-x:=a+b;
-x:=1+2;
-x:=1/2;
-x:=2*2;
-output("hahaha");
-input(x,t,y,u);
-factoriel(r,t,y);
-While(d !=f)
-Faire
-Fait
+int x,w;
+
 }

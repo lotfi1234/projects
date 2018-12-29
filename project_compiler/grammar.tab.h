@@ -79,7 +79,11 @@ extern int yydebug;
     mc_sup = 289,
     mc_eqless = 290,
     mc_eqsup = 291,
-    mc_less = 292
+    mc_less = 292,
+    mc_const = 293,
+    cstfloat = 294,
+    mc_taille = 295,
+    tailletab = 296
   };
 #endif
 
@@ -92,8 +96,9 @@ union YYSTYPE
 
 int entier;
 char* str;
+float reel;
 
-#line 97 "grammar.tab.h" /* yacc.c:1909  */
+#line 102 "grammar.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
