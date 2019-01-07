@@ -1,20 +1,16 @@
-
-int FUNCTION factoriel(int x){
-int y,x;
+#include<InOut>
+int FUNCTION factoriel(int  x){
+int y;
+int d,f,m;
 float g,h;
 int tab[20];
-float tab[40];
-string CONST t;
-x:=g;
-u:=1;
+float CONST t;
 output("hahaha");
-input(x,t);
-While(d !=f)
+While(g !=34)
 Faire
 Fait
-Return m;
 }
 Main(){
-int x,w;
-
+int x;
+x:=-2;
 }

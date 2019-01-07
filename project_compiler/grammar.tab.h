@@ -83,7 +83,9 @@ extern int yydebug;
     mc_const = 293,
     cstfloat = 294,
     mc_taille = 295,
-    tailletab = 296
+    tailletab = 296,
+    mc_sub = 297,
+    mc_add = 298
   };
 #endif
 
@@ -92,13 +94,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 7 "grammar.y" /* yacc.c:1909  */
+#line 8 "grammar.y" /* yacc.c:1909  */
 
 int entier;
 char* str;
 float reel;
 
-#line 102 "grammar.tab.h" /* yacc.c:1909  */
+#line 104 "grammar.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

@@ -10,6 +10,7 @@ char CodeEntite[20];
 char TypeEntite[20];
 char const_or_not[30];
 int taille;
+char Appartient_a[40];
 }TypeTS;
 TypeTS ts[100];
 
@@ -26,11 +27,9 @@ return -1;
 }
 void inserer(char entite[], char code[])
 {
-
 strcpy(ts[CpTabSym].NomEntite,entite);
 strcpy(ts[CpTabSym].CodeEntite,code);
 CpTabSym++;
-
 }
 void afficher ()
 {
@@ -45,17 +44,23 @@ printf("\t|%10s |%12s | %12s | %10s|%4d\n",ts[i].NomEntite,ts[i].CodeEntite,ts[i
 i++;
 }
 }
-void insererAll(char entiter[],char Type[],char b[],int t){
+void insererAll(char entiter[],char Type[],char b[],int t,char c[]){
 int position=recherche(entiter);
 ts[position].taille=t;
 strcpy(ts[position].TypeEntite,Type);
 strcpy(ts[position].const_or_not,b);
 }
+void insert_appartient(char entite[],char c[]){
+int pos=recherche(entite);
+strcpy(ts[pos].Appartient_a,c);
+}
 int doubleDeclaration(char entite[]){
 int cpt=0,pos=0;
+int posti=recherche(entite);
+char t[40];
+strcpy(ts[posti].Appartient_a,t);
 while(pos<=CpTabSym){
-if(strcmp(entite,ts[pos].NomEntite)==0){
-
+if(strcmp(entite,ts[pos].NomEntite)==0 && strcmp(ts[pos].Appartient_a,t)==0){
 cpt++;
 }
 pos++;
@@ -76,13 +81,40 @@ return -1;
 else
 return 1;
 }
-
+int not_compatible_int(char c[]){
+int pos=recherche(c);
+if(strcmp(ts[pos].TypeEntite,"int")==0){
+return 1;
+}
+else
+return -1;
+}
+int not_compatible_float(char c[]){
+int pos=recherche(c);
+if(strcmp(ts[pos].TypeEntite,"float")==0){
+return 1;
+}
+else
+return -1;
+}
+int not_compatible_string(char c[]){
+int pos=recherche(c);
+if(strcmp(ts[pos].TypeEntite,"string")==0){
+return 1;
+}
+else
+return -1;
+}
+char* getType(char c[]){
+int pos=recherche(c);
+return ts[pos].TypeEntite;
+}
 int  not_compatible(char entite1[],char entiter2[]){
 int pos1,pos2;
 pos1=recherche(entite1);
 pos2=recherche(entiter2);
-if(strcmp(ts[pos1].TypeEntite,ts[pos2].TypeEntite)==1){
-printf("%s et %s ne sont pas compatible\n",entite1,entiter2);
+if(strcmp(ts[pos1].TypeEntite,ts[pos2].TypeEntite)!=0){
+printf("%s et %s sont de type different (incompatible)\n",entite1,entiter2);
 return -1;
 }
 else
@@ -111,12 +143,18 @@ return -1;
 }
 else
 return 1;
-
+}
+int absense_bib_arithme(){
+if(recherche("#include<Arithme>\n")==-1){
+return -1;
+}
+else
+return 1;
 }
 %}
 idf [a-zA-Z]([a-zA-Z0-9]*)
-cstint [+-]?([1-9][0-9])*|([1-9])
-cstfloat [+-]?([1-9][0-9]*,[1-9][0-9]*)
+cstint ([1-9][0-9])*|([1-9])
+cstfloat ([1-9][0-9]*,[1-9][0-9]*)
 inout "#include<InOut>\n"
 arithme "#include<Arithme>\n"
 %%
@@ -155,7 +193,8 @@ string {yylval.str=strdup(yytext);  return mc_string;}
 \>= return mc_eqsup;
 \!= return mc_noteq;
 \" return mc_gui;
-
+\+ return mc_add;
+\- return mc_sub;
 [ \t\r]
 \n {nbr_lignes++;}
 . {printf("erreur lexical a la ligne %d dans %s\n",nbr_lignes,yytext);}
